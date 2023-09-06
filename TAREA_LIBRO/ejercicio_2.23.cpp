@@ -4,7 +4,7 @@ using namespace std;
 int main() {
 
     int num1, num2, num3, num4, num5;
-    cout << "Ingrese 5 números enteros: ";
+    cout << "Ingrese 5 nï¿½meros enteros: ";
     cin >> num1 >> num2 >> num3 >> num4 >> num5;
 
     int menor;
@@ -36,8 +36,8 @@ int main() {
     else if (num5 < menor) {
         menor = num5;
     }
-    cout << "El número mayor es " << mayor << endl;
-    cout << "El número menor es " << menor << endl;
+    cout << "El numero mayor es " << mayor << endl;
+    cout << "El numero menor es " << menor << endl;
 
     return 0;
 }

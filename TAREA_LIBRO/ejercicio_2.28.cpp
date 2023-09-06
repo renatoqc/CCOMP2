@@ -3,10 +3,10 @@ using namespace std;
 
 int main() {
 
-	int x,n1,n2,n3,n4;
+	int num,n1,n2,n3,n4;
 
 	cout << "Ingrese un entero de 4 digitos: ";
-	cin >> x;4567
+	cin >> num;
 
 	n1 = num / 1000;
 	n2 = (num / 100) % 10;
