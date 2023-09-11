@@ -1,72 +1,18 @@
-#pragma once
 #include <iostream>
+#include "Factura.h"
 #include <string>
 
 using namespace std;
 
-class Factura {
+int main() {
 
-private:
+    Factura persona1{ "tres","grande", 2, 20, 0.20, 10 };
+    persona1.display();
 
-    string NumPieza, descrip;
-    int cantiCompra, precio;
-    double impuesto, descuento;
+    cout << "" << endl;
 
-public:
+    double papel = persona1.getnvoiceAmount();
+    cout << "El total de la compra es: " << papel;
 
-    Factura(string Numpieza_, string descrip_, int cantiCompra_, int precio_, double impuesto_, double descuento_)
-        :NumPieza{ Numpieza_ }, descrip{ descrip_ }, cantiCompra{ cantiCompra_ }, precio{ precio_ }, impuesto{ impuesto_ }, descuento{ descuento_ } {}
-
-    void setNum(string Numpieza_) {
-        NumPieza = Numpieza_;
-    }
-    void setDescri(string descrip_) {
-        descrip = descrip_;
-    }
-    void setCanco(int cantiCompra_) {
-        cantiCompra = cantiCompra_;
-    }
-    void setPre(int precio_) {
-        precio = precio_;
-    }
-    void setImpu(double impuesto_) {
-        impuesto = impuesto_;
-    }
-    void setDsc(double descuento_) {
-        descuento = descuento_;
-    }
-
-    string getNumPieza() {
-        return NumPieza;
-    }
-    string getDescri() {
-        return descrip;
-    }
-    int getCanco() {
-        return cantiCompra;
-    }
-    int getPrecio() {
-        return precio;
-    }
-    double getDsc() {
-        return descuento;
-    }
-    double getImpuesto() {
-        return impuesto;
-    }
-
-    double getnvoiceAmount() {
-        double recibo = (cantiCompra * precio) + impuesto;
-        recibo = recibo - (descuento / 100);
-        return recibo;
-    }
-
-    void display() {
-        cout << "La persona1: " << getNumPieza() << endl;
-        cout << "Descripcion: " << getDescri() << endl;
-        cout << "Cnatidad de objetos: " << getCanco() << endl;
-        cout << "Costo:  " << getPrecio() << endl;
-        cout << "Impuesto: " << getImpuesto() << endl;
-        cout << "Descuento: " << getDsc() << endl;
-    }
-};
+    return 0;
+}
