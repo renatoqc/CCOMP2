@@ -3,6 +3,8 @@
 
 using namespace std;
 
+
+
 int main(){
     Account account1{"Jane Green", 50};
     Account account2{"Jhon Blue", -7};
@@ -36,7 +38,7 @@ int main(){
     cout << "\n\nEnter withdraw amount for account2: ";
     cin >> withdrawAmount;
     cout << "adding " << withdrawAmount << " to account2 balance";
-    account1.retiro_(withdrawAmount);
+    account2.retiro_(withdrawAmount);
 
     cout <<"\naccount1: "<< account1.getName()<<"Balance is $"<<account1.getBalance();
     cout <<"\naccount2: "<< account2.getName()<<"Balance is $"<<account2.getBalance();

@@ -58,6 +58,7 @@ public:
     double getnvoiceAmount() {
         double recibo = (cantiCompra * precio) + impuesto;
         recibo = recibo - (descuento / 100);
+        recibo -= (descuento / 100);
         return recibo;
     }
 
