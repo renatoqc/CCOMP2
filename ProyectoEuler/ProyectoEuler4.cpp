@@ -2,6 +2,8 @@
 
 using namespace std;
 
+/*Encuentra el pal√≠ndromo m√°s grande hecho del producto de dos 3-n√∫meros de d√≠gitos.*/
+
 bool esPalindromo(int n) {
     int original = n;
     int reverso = 0;
@@ -27,7 +29,7 @@ int main() {
         }
     }
 
-    cout << "El palÌndromo m·s grande hecho del producto de dos n˙meros de 3 dÌgitos es: " << maxPalindromo << endl;
+    cout << "El palÔøΩndromo mÔøΩs grande hecho del producto de dos nÔøΩmeros de 3 dÔøΩgitos es: " << maxPalindromo << endl;
 
     return 0;
 }

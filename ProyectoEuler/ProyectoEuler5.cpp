@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+/*Cuál es el número positivo más pequeño que es*/
 
 int main() {
     int multiploPeque = 40;
@@ -9,7 +10,7 @@ int main() {
     while (i < 20) {
         if (multiploPeque % i == 0) {
             i++;
-            continue;
+            
         }
         else {
             i = 10;

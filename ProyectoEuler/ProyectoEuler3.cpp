@@ -2,6 +2,8 @@
 
 using namespace std;
 
+/*¿Cuál es el mayor factor primo del número?*/
+
 int main() {
     long long x;
     x = 600851475143;

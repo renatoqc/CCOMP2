@@ -2,6 +2,9 @@
 
 using namespace std;
 
+/*Encuentra la suma de todos los números primos menores de dos millones.*/
+
+
 bool primo(int n) {
     if (n <= 1) {
         return false;

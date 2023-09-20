@@ -2,6 +2,8 @@
 
 using namespace std;
 
+/*Encuentre la suma de los términos pares.*/
+
 int main() {
     int n1 = 1, n2 = 2, fib = 0, suma = 0;
 

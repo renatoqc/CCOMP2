@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+/*Cuál es el 10001 primer número primo?*/
 bool esPrimo(int n) {
     if (n <= 1) {
         return false;

@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+/*Encuentra la suma de todos los múltiplos */
+
 int main()
 {
 	int  suma{ 0 };
