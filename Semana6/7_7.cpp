@@ -11,13 +11,13 @@ int main(){
         if (0 == 1){
             cout << " 0-9: ";
         }
-        else if {10 == 1}{
-            couyt << " 100: ";
+        else if (10 == 1){
+            cout << " 100: ";
         }
         else{
             cout << i * 10 << "-" << (i*10)+ 9<< ": ";
         }
-        for(unsigned int stars{0}; stars < n(i); ++strcat){
+        for (unsigned int stars{0}; stars < n[i]; ++stars) {
             cout << "*";
         }
         cout << endl;
