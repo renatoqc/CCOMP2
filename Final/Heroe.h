@@ -20,7 +20,7 @@ private:
     vector<string> habilidades;
 
 public:
-    // Constructor
+    
     Heroe(string nombre, string tipo, string historia, Estadisticas estadisticas) {
         this->nombre = nombre;
         this->tipo = tipo;
@@ -28,7 +28,7 @@ public:
         this->estadisticas = estadisticas;
     }
 
-    // M�todos para obtener informaci�n
+    
     string obtenerNombre() const {
         return nombre;
     }

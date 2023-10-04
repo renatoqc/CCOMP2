@@ -59,16 +59,17 @@ int main() {
     heroes.push_back(heroe5);
 
 
-    Estadisticas estadisticasHeroe6 = { 25, 14, 16 };
-    string historiaHeroe6 = "Con cada gancho, su habilidad estrella, Pudge desata el miedo entre sus enemigos.";
-    Heroe heroe6("Pudge", "Fuerza", historiaHeroe6, estadisticasHeroe6);
-    heroe6.agregarHabilidad("Gancho de Carne");
-    heroe6.agregarHabilidad("Pudrir");
-    heroe6.agregarHabilidad("Monton de Carne");
-    heroe6.agregarHabilidad("Descuartizar");
+    Estadisticas estadisticasHeroe6 = { 23, 22, 25 };
+    string historiaHeroe6 = "Sintetizando los recursos adicionales de cada una de las muertes, Alchemist no tiene" 
+                        "\n\t\t     problema en reunir las herramientas necesarias para destruir a sus enemigos.";
+    Heroe heroe6("Alchemist", "Fuerza", historiaHeroe6, estadisticasHeroe6);
+    heroe6.agregarHabilidad("Acido Pulverizado");
+    heroe6.agregarHabilidad("Mezcla Inestable");
+    heroe6.agregarHabilidad("Armamento Corrosivo");
+    heroe6.agregarHabilidad("Furia Quimica");
     heroes.push_back(heroe6);
     
-    // Mostrar informaci�n de todos los h�roes
+    // Mostrar informacion de todos los heroes
     for (const Heroe& heroe : heroes) {
         cout << "NOMBRE DEL HEROE   : " << heroe.obtenerNombre() << endl;
         cout << "TIPO DEL HEROE     : " << heroe.obtenerTipo() << endl;
