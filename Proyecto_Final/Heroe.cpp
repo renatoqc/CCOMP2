@@ -4,86 +4,11 @@
 #include <fstream>
 #include <vector>
 
-
-
 using namespace std;
 
-int main() {
 
-    fstream archivo("Heroes.txt", ios::out | ios::in);
-    cout << "--------------------------------------------";
-    cout << "|           DOTADEX           |";
-    cout << "--------------------------------------------" << endl;
-    // Parte de DotaDex
-    string NombredeUsuario;    // Crear una instancia de DotaDex
-    std::cout << "Ingrese su nombre de Usuario: ";
-    std::cin >> NombredeUsuario;
-        DotaDex dotaDex(NombredeUsuario);
-
-        int opcion;
-
-        while (true) {
-            // Mostrar el menú
-            std::cout << "Menú de opciones:" << std::endl;
-            std::cout << "1. Heroes" << std::endl;
-            std::cout << "2. MapayRunas" << std::endl;
-            std::cout << "3. Itmes" << std::endl;
-            std::cout << "4. Salir" << std::endl;
-            std::cout << "Ingrese el número de la opción: ";
-
-            // Leer la opción del usuario
-            std::cin >> opcion;
-
-            // Limpiar el búfer de entrada
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-
-            // Realizar acciones basadas en la opción seleccionada
-            switch (opcion) {
-            case 1:
-                std::cout << "Has seleccionado la Opción 1." << std::endl;
-                // Realiza la acción asociada a la Opción 1
-                break;
-            case 2:
-                std::cout << "Has seleccionado la Opción 2." << std::endl;
-                // Realiza la acción asociada a la Opción 2
-                break;
-            case 3:
-                std::cout << "Has seleccionado la Opción 3." << std::endl;
-                // Realiza la acción asociada a la Opción 3
-                break;
-            case 4:
-                std::cout << "Saliendo del programa." << std::endl;
-                return 0; // Sal del programa
-            default:
-                std::cout << "Opción no válida. Por favor, elija una opción válida." << std::endl;
-                break;
-            }
-
-        // Llamar a los métodos de DotaDex
-        dotaDex.generarIdSteam();
-        int idSteam = dotaDex.obtenerIdSteam();
-
-        // Mostrar la información
-        dotaDex.mostrarInformacion();
-
-        
-
-        cout << "--------------------------------------------";
-        cout << "|           DOTADEX           |";
-        cout << "--------------------------------------------";
-        
-        cout << endl;
-        cout << endl;
-
-       // Imprimir el ID de Steam
-        //std::cout << "ID de Steam: " << idSteam << std::endl;
-
-             
-
-    // Crear varios héroes y almacenarlos en un vector
-    vector<Heroe*> heroes;
-
-
+void crearHeroes(std::vector<Heroe*>& heroes){
+   
     //UNIVERSAL
     Estadisticas estadisticasHeroe1 = { 21, 19, 24 };
     string historiaHeroe1 =
@@ -91,7 +16,7 @@ int main() {
         "emerge de su Templo Oculto \t\t\t"
         "\t     para vigilar al mismo tiempo las distintas áreas del campo de "
         "batalla.";
-    Agilidad heroe1("Void Spirit", historiaHeroe1, estadisticasHeroe1);
+    Universal heroe1("Void Spirit", historiaHeroe1, estadisticasHeroe1);
     heroe1.agregarHabilidad("Remanente Etereo");
     heroe1.agregarHabilidad("Disimilar");
     heroe1.agregarHabilidad("Pulso Resonante");
@@ -122,7 +47,7 @@ int main() {
     string historiaHeroe4 = "Con un intrincado arsenal de hechizos a su "
         "disposición, Invoker puede adaptarse"
         "\n\t\t     a cualquier situación en la batalla.";
-    Inteligencia heroe4("Invoker", historiaHeroe4, estadisticasHeroe4);
+    Universal heroe4("Invoker", historiaHeroe4, estadisticasHeroe4);
     heroe4.agregarHabilidad("Quas");
     heroe4.agregarHabilidad("Wex");
     heroe4.agregarHabilidad("Exort");
@@ -256,34 +181,108 @@ int main() {
     heroe16.agregarHabilidad("Cambio de Fase");
     heroe16.agregarHabilidad("Espiral de Suenos");
     heroes.push_back(&heroe16);
+}
 
+void liberarHeroes(std::vector<Heroe*>& heroes) {
+    for (Heroe* heroe : heroes) {
+        delete heroe;
+    }
+}
+
+int main() {
+
+    fstream archivo("Heroes.txt", ios::out | ios::in);
+    cout << "--------------------------------------------";
+    cout << "|           DOTADEX           |";
+    cout << "--------------------------------------------" << endl;
+    // Parte de DotaDex
+    string NombredeUsuario;    // Crear una instancia de DotaDex
+    std::cout << "Ingrese su nombre de Usuario: ";
+    std::cin >> NombredeUsuario;
+        DotaDex dotaDex(NombredeUsuario);
+
+        // Llamar a los métodos de DotaDex
+        dotaDex.generarIdSteam();
+        int idSteam = dotaDex.obtenerIdSteam();
+
+        // Mostrar la información
+        dotaDex.mostrarInformacion();
+
+        
+
+        cout << "--------------------------------------------";
+        cout << "|           DOTADEX           |";
+        cout << "--------------------------------------------";
+        
+        cout << endl;
+        cout << endl;
+
+        int opcion;
+        vector<Heroe*> heroes;
+
+        while (true) {
+            // Mostrar el menú
+            std::cout << "Menú de opciones:" << std::endl;
+            std::cout << "1. Heroes" << std::endl;
+            std::cout << "2. MapayRunas" << std::endl;
+            std::cout << "3. Itmes" << std::endl;
+            std::cout << "4. Salir" << std::endl;
+            std::cout << "Ingrese el número de la opción: ";
+
+            // Leer la opción del usuario
+            std::cin >> opcion;
+
+            // Realizar acciones basadas en la opción seleccionada
+            switch (opcion) {
+            case 1:
+                std::cout << "Has seleccionado la Opción 1 (Heroes)." << std::endl;
+                crearHeroes(heroes);
+                cout << endl;
+                for (const Heroe* heroe : heroes) {
+                    cout << "NOMBRE DEL HEROE   : " << heroe->obtenerNombre() << endl;
+                    cout << "TIPO DEL HEROE     : " << heroe->obtenerTipo() << endl;
+                    cout << "BIOGRAFIA DEL HEROE: " << heroe->obtenerBiografia() << endl;
+                    cout << endl;
+
+                    Estadisticas estadisticas = heroe->obtenerEstadisticas();
+                    cout << "ESTADISTICAS DEL HEROE:" << endl;
+                    cout << " - Fuerza: " << estadisticas.fuerza << endl;
+                    cout << " - Agilidad: " << estadisticas.agilidad << endl;
+                    cout << " - Inteligencia: " << estadisticas.inteligencia << endl;
+                    cout << endl;
+
+                    vector<string> habilidades = heroe->obtenerHabilidades();
+                    cout << "HABILIDADES DEL HEROE:" << endl;
+                    for (const string& habilidad : habilidades) {
+                        cout << " - " << habilidad << endl;
+                    }
+
+                    cout << "------------------------------------------------------------------"
+                            "--------------------------------------------"
+                        << endl; // Separador entre héroes
+                }
+                break;
+            case 2:
+                std::cout << "Has seleccionado la Opción 2." << std::endl;
+                // Realiza la acción asociada a la Opción 2
+                break;
+            case 3:
+                std::cout << "Has seleccionado la Opción 3." << std::endl;
+                // Realiza la acción asociada a la Opción 3
+                break;
+            case 4:
+                std::cout << "Saliendo del programa." << std::endl;
+                return 0; // Sal del programa
+            default:
+                std::cout << "Opción no válida. Por favor, elija una opción válida." << std::endl;
+                break;
+            }
+        }
+                 
 
     // Mostrar información de todos los héroes
-    for (const Heroe* heroe : heroes) {
-        cout << "NOMBRE DEL HEROE   : " << heroe->obtenerNombre() << endl;
-        cout << "TIPO DEL HEROE     : " << heroe->obtenerTipo() << endl;
-        cout << "BIOGRAFIA DEL HEROE: " << heroe->obtenerBiografia() << endl;
-        cout << endl;
-
-        Estadisticas estadisticas = heroe->obtenerEstadisticas();
-        cout << "ESTADISTICAS DEL HEROE:" << endl;
-        cout << " - Fuerza: " << estadisticas.fuerza << endl;
-        cout << " - Agilidad: " << estadisticas.agilidad << endl;
-        cout << " - Inteligencia: " << estadisticas.inteligencia << endl;
-        cout << endl;
-
-        vector<string> habilidades = heroe->obtenerHabilidades();
-        cout << "HABILIDADES DEL HEROE:" << endl;
-        for (const string& habilidad : habilidades) {
-            cout << " - " << habilidad << endl;
-        }
-
-        cout << "------------------------------------------------------------------"
-            "--------------------------------------------"
-            << endl; // Separador entre héroes
-    }
-
     
 
     return 0;
+        
 }
