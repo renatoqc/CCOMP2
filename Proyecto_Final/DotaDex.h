@@ -30,7 +30,7 @@ DotaDex::DotaDex(std::string nombreUsuario) : nombreUsuario(nombreUsuario), idSt
 
 void DotaDex::generarIdSteam() {
     // Generar un número aleatorio como ID de Steam
-    idSteam = std::rand() % 1000000000;
+    idSteam = std::rand() % 10000000000;
 }
 
 int DotaDex::obtenerIdSteam() const {
