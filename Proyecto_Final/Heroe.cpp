@@ -1,5 +1,7 @@
 #include "Heroe.h"
 #include "DotaDex.h"
+#include "Items.h"
+#include "MapaRunas.h"
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -279,10 +281,19 @@ int main() {
             }
         }
                  
+    Dota2Item ironBranch("Iron Branch", 50, "Provides +1 to all attributes.");
+    Dota2Item blinkDagger("Blink Dagger", 2250, "Allows instant teleportation to a target point.");
+    Dota2Item blackKingBar("Black King Bar", 3975, "Grants magic immunity for a short duration.");
+    Dota2Item desolator("Desolator", 3500, "Reduces enemy armor and enhances attack damage.");
+    Dota2Item forceStaff("Force Staff", 2250, "Pushes the user or an ally in a chosen direction.");
 
-    // Mostrar información de todos los héroes
+    std::cout << "Dota 2 Item Information:\n";
+    ironBranch.PrintInfo();
+    blinkDagger.PrintInfo();
+    blackKingBar.PrintInfo();
+    desolator.PrintInfo();
+    forceStaff.PrintInfo();
     
-
     return 0;
         
 }
