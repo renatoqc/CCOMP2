@@ -12,6 +12,8 @@ private:
     long long idSteam;
 
 public:
+
+    DotaDex();
     DotaDex(std::string nombreUsuario);
 
     // Método para generar un ID de Steam aleatorio
@@ -23,6 +25,12 @@ public:
     // Método para mostrar información del usuario
     void mostrarInformacion() const;
 };
+
+DotaDex::DotaDex() : nombreUsuario(""), idSteam(0) {
+    // Inicializar la semilla del generador de números aleatorios
+    std::srand(static_cast<unsigned>(std::time(nullptr)));
+}
+
 DotaDex::DotaDex(std::string nombreUsuario) : nombreUsuario(nombreUsuario), idSteam(0) {
     // Inicializar la semilla del generador de números aleatorios
     std::srand(static_cast<unsigned>(std::time(nullptr)));
